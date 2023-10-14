@@ -15,7 +15,7 @@ const InfoDropdown = ({ title, deliveryInfo }: InfoDropdownProps) => {
   return (
     <div>
       <button
-        className="flex items-center justify-between py-2 px-4 rounded w-full mb-4 text-center"
+        className="flex items-center justify-between py-2 px-4 rounded w-full text-center border-b"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{title}</span>
@@ -34,7 +34,7 @@ const InfoDropdown = ({ title, deliveryInfo }: InfoDropdownProps) => {
         leaveFrom="transform scale-y-100"
         leaveTo="transform scale-y-0"
       >
-        <div className="bg-white p-4 rounded-md mt-2">
+        <div className="p-4">
           <p>{deliveryInfo}</p>
         </div>
       </Transition>

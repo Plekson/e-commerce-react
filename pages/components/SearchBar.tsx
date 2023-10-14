@@ -1,39 +1,44 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
-import axios from "axios";
-import SearchResults from "./SearchResults";
-import Dropdown from "./Dropdown";
+// components/SearchBar.tsx
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import axios from 'axios';
+import SearchResults from './SearchResults';
+import Dropdown from './Dropdown';
 
 interface SearchBarProps {
   visibility: string;
 }
 
+interface SearchResult {
+  id: number;
+  name: string;
+  link: string;
+}
+
 const SearchBar = ({ visibility }: SearchBarProps) => {
-  const myResults: any[] = [];
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    if (term.trim() !== "") {
+    if (term.trim() !== '') {
       fetchSearchResults(term);
     } else {
       setSearchResults([]);
     }
   };
 
-  const fetchSearchResults = (term: string) => {
-    axios
-      .get(`your_backend_api_url/search?term=${term}`)
-      .then((response) => {
-        const results = response.data;
-        setSearchResults(results);
-      })
-      .catch((error) => {
-        console.error("Error fetching search results:", error);
-      });
+  const fetchSearchResults = async (term: string) => {
+    try {
+      const response = await axios.get(`../api/searchres?term=${term}`);
+      const results: SearchResult[] = response.data;
+      setSearchResults(results);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
   };
+
   return (
     <div className={`${visibility}relative flex-1 lg:mx-24 sm:mx-8 mx-4`}>
       <div className="flex flex-1 items-center bg-white rounded-full px-2 justify-between border border-gray-100 shadow-md">
@@ -41,7 +46,9 @@ const SearchBar = ({ visibility }: SearchBarProps) => {
         <input
           type="search"
           className="rounded-full border-0 focus:ring-0 hide-clear w-full"
-          placeholder="maciek chuj"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleInputChange}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +65,7 @@ const SearchBar = ({ visibility }: SearchBarProps) => {
           />
         </svg>
       </div>
-      <SearchResults results={myResults} />
+      <SearchResults results={searchResults} />
     </div>
   );
 };

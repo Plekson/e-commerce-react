@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import apiData from "../api/api-data.json";
+import apiData from "../api/products.json";
 
 interface Product {
   id: number;

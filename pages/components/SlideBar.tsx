@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import CartProduct from "@/pages/components/CartProduct";
+import Link from "next/link";
 
 interface SlideBarProps {
     isOpen: boolean;
     onClose: () => void;
     title: string;
     data: string;
+    btnTitle: string;
   }
 
-const SlideBar = ({ isOpen, onClose, title, data }: SlideBarProps) => {
+const SlideBar = ({ isOpen, onClose, title, data, btnTitle }: SlideBarProps) => {
     const slideBarOpen = isOpen ? 'md:right-0 right-0' : 'md:right-[-100%] right-[-768px]';
   const products = [
     {
@@ -55,9 +57,9 @@ const SlideBar = ({ isOpen, onClose, title, data }: SlideBarProps) => {
         ))}
       </div>
       <div className="flex py-5">
-        <button className="flex-1 border rounded-lg bg-green-600 text-white py-4">
-          Złoż zamówienie
-        </button>
+        <Link href={`/subpages/cartpage`} className="flex-1 border rounded-lg bg-green-600 text-white py-4 text-center">
+          {btnTitle}
+        </Link>
       </div>
     </div>
   );

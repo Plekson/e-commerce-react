@@ -1,15 +1,11 @@
+// Dropdown.tsx
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Category } from "../api/categories";
 
 const Dropdown = () => {
-  const [categories] = useState([
-    { id: 1, name: "Buty", slug: "buty" },
-    { id: 2, name: "Spodnie", slug: "spodnie" },
-    { id: 3, name: "Bluzy", slug: "bluzy" },
-    // Dodaj więcej kategorii według potrzeb
-  ]);
-
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -25,6 +21,12 @@ const Dropdown = () => {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    fetch("/api/categories")
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
+  }, []);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
@@ -44,10 +46,10 @@ const Dropdown = () => {
       </button>
       {isOpen && (
         <div className="absolute mt-2 w-40 bg-white border rounded shadow-lg">
-          {categories.map((category: any) => (
+          {categories.map((category) => (
             <Link
               key={category.id}
-              href={`/subpages/${category.slug}`}
+              href={`/subpages/ItemsList?category=${category.slug}`}
               className="cursor-pointer block p-2 hover:bg-gray-200"
               onClick={() => setIsOpen(false)}
             >

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../public/images/logo.png";
 import Image from "next/image";
-import CartBar from "./CartBar";
 import SearchBar from "@/pages/components/SearchBar";
 import Link from "next/link";
 import UserDropdown from "../components/UserDropdown";
 import SlideBar from "../components/SlideBar";
 
 const Navbar2 = () => {
+  
   const [searchResults, setSearchResults] = useState<string[]>([]);
 
   const handleSearchResultsChange = (results: string[]) => {
@@ -16,13 +16,16 @@ const Navbar2 = () => {
 
   const exampleResults = ["Wynik 1", "Wynik 2", "Wynik 3"];
 
-  type SlideBarName = 'slideBar1' | 'slideBar2';
+  type SlideBarName = "slideBar1" | "slideBar2";
 
-  const [activeSlideBar, setActiveSlideBar] = useState<SlideBarName | null>(null);
+  const [activeSlideBar, setActiveSlideBar] = useState<SlideBarName | null>(
+    null
+  );
 
   const toggleSlideBar = (barName: SlideBarName) => {
     setActiveSlideBar(activeSlideBar === barName ? null : barName);
   };
+  
   return (
     <header className="bg-white md:pb-0 pb-2 fixed z-30 top-0 w-screen left-0">
       <style
@@ -56,7 +59,14 @@ const Navbar2 = () => {
         <div>
           <ul className="flex text-lg justify-end">
             <li className="sm:pr-8 pr-4">
-              <a href="#" className="hover:text-green-600 duration-200" onClick={() => toggleSlideBar('slideBar2')}>
+              <a
+                href="#"
+                className="hover:text-green-600 duration-200"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleSlideBar("slideBar2");
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -78,7 +88,10 @@ const Navbar2 = () => {
               <a
                 href="#"
                 className="hover:text-green-600 duration-200"
-                onClick={() => toggleSlideBar('slideBar1')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleSlideBar("slideBar1");
+                }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +119,20 @@ const Navbar2 = () => {
 
       <SearchBar visibility="md:hidden " />
 
-      <SlideBar isOpen={activeSlideBar === 'slideBar1'} onClose={() => toggleSlideBar('slideBar1')} title="Koszyk" data="SlideBar1 Data" />
-      <SlideBar isOpen={activeSlideBar === 'slideBar2'} onClose={() => toggleSlideBar('slideBar2')} title="Ulubione" data="SlideBar2 Data" />
+      <SlideBar
+        btnTitle="Przejdz do zamówienia"
+        isOpen={activeSlideBar === "slideBar1"}
+        onClose={() => toggleSlideBar("slideBar1")}
+        title="Koszyk"
+        data="SlideBar1 Data"
+      />
+      <SlideBar
+        btnTitle="Dodaj zakupy do koszyka"
+        isOpen={activeSlideBar === "slideBar2"}
+        onClose={() => toggleSlideBar("slideBar2")}
+        title="Ulubione"
+        data="SlideBar2 Data"
+      />
     </header>
   );
 };
