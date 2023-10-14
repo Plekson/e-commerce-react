@@ -4,6 +4,8 @@ import Image from "next/image";
 import CartBar from "./CartBar";
 import SearchBar from "@/pages/components/SearchBar";
 import Link from "next/link";
+import UserDropdown from "../components/UserDropdown";
+import SlideBar from "../components/SlideBar";
 
 const Navbar2 = () => {
   const [searchResults, setSearchResults] = useState<string[]>([]);
@@ -14,20 +16,12 @@ const Navbar2 = () => {
 
   const exampleResults = ["Wynik 1", "Wynik 2", "Wynik 3"];
 
-  const [isCartOpen, setCartOpen] = useState(false);
+  type SlideBarName = 'slideBar1' | 'slideBar2';
 
-  const cartBarClass = isCartOpen
-    ? "md:right-0 right-0"
-    : "md:right-[-100%] right-[-768px]";
-  const showBg = isCartOpen ? "visible" : "hidden";
+  const [activeSlideBar, setActiveSlideBar] = useState<SlideBarName | null>(null);
 
-  const toggleCart = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    setCartOpen(!isCartOpen);
-    e.preventDefault();
-  };
-
-  const closeCart = () => {
-    setCartOpen(false);
+  const toggleSlideBar = (barName: SlideBarName) => {
+    setActiveSlideBar(activeSlideBar === barName ? null : barName);
   };
   return (
     <header className="bg-white md:pb-0 pb-2 fixed z-30 top-0 w-screen left-0">
@@ -62,7 +56,7 @@ const Navbar2 = () => {
         <div>
           <ul className="flex text-lg justify-end">
             <li className="sm:pr-8 pr-4">
-              <a href="#" className="hover:text-green-600 duration-200">
+              <a href="#" className="hover:text-green-600 duration-200" onClick={() => toggleSlideBar('slideBar2')}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -84,7 +78,7 @@ const Navbar2 = () => {
               <a
                 href="#"
                 className="hover:text-green-600 duration-200"
-                onClick={toggleCart}
+                onClick={() => toggleSlideBar('slideBar1')}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -103,24 +97,8 @@ const Navbar2 = () => {
                 <p className="text-sm">Koszyk</p>
               </a>
             </li>
-            <li className="">
-              <a href="#" className="hover:text-green-600 duration-200">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6 mx-auto"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
-                <p className="text-sm">Konto</p>
-              </a>
+            <li className="sm:pr-8 pr-4">
+              <UserDropdown />
             </li>
           </ul>
         </div>
@@ -128,7 +106,8 @@ const Navbar2 = () => {
 
       <SearchBar visibility="md:hidden " />
 
-      <CartBar toggler={cartBarClass} onClose={closeCart} display={showBg} />
+      <SlideBar isOpen={activeSlideBar === 'slideBar1'} onClose={() => toggleSlideBar('slideBar1')} title="Koszyk" data="SlideBar1 Data" />
+      <SlideBar isOpen={activeSlideBar === 'slideBar2'} onClose={() => toggleSlideBar('slideBar2')} title="Ulubione" data="SlideBar2 Data" />
     </header>
   );
 };
