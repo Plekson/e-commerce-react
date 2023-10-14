@@ -1,0 +1,165 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "category": "bluzy",
+        "name": "Bluza z kapturem",
+        "price": 59.99,
+        "description": "Wygodna bluza z kapturem, idealna na chłodniejsze dni.",
+        "image": "https://placekitten.com/300/200?image=1"
+      },
+      {
+        "id": 2,
+        "category": "bluzy",
+        "name": "Bluza sportowa",
+        "price": 49.99,
+        "description": "Bluza stworzona z myślą o aktywności fizycznej.",
+        "image": "https://placekitten.com/300/200?image=2"
+      },
+      {
+        "id": 3,
+        "category": "spodnie",
+        "name": "Jeansy slim fit",
+        "price": 79.99,
+        "description": "Eleganckie jeansy o dopasowanym kroju.",
+        "image": "https://placekitten.com/300/200?image=3"
+      },
+      {
+        "id": 4,
+        "category": "spodnie",
+        "name": "Spodnie trekkingowe",
+        "price": 89.99,
+        "description": "Wytrzymałe spodnie idealne na wędrówki i trekking.",
+        "image": "https://placekitten.com/300/200?image=4"
+      },
+      {
+        "id": 5,
+        "category": "akcesoria",
+        "name": "Zegarek sportowy",
+        "price": 129.99,
+        "description": "Zegarek stworzony dla miłośników aktywności fizycznej.",
+        "image": "https://placekitten.com/300/200?image=5"
+      },
+      {
+        "id": 6,
+        "category": "akcesoria",
+        "name": "Kapelusz letni",
+        "price": 34.99,
+        "description": "Kapelusz idealny na letnie dni.",
+        "image": "https://placekitten.com/300/200?image=6"
+      },
+      {
+        "id": 7,
+        "category": "bluzy",
+        "name": "Bluza oversize",
+        "price": 69.99,
+        "description": "Luźna bluza o modnym oversize'owym kroju.",
+        "image": "https://placekitten.com/300/200?image=7"
+      },
+      {
+        "id": 8,
+        "category": "spodnie",
+        "name": "Spodnie dresowe",
+        "price": 39.99,
+        "description": "Wygodne spodnie dresowe, idealne na relaksacyjne dni.",
+        "image": "https://placekitten.com/300/200?image=8"
+      },
+      {
+        "id": 9,
+        "category": "akcesoria",
+        "name": "Okulary przeciwsłoneczne",
+        "price": 49.99,
+        "description": "Stylowe okulary chroniące oczy przed słońcem.",
+        "image": "https://placekitten.com/300/200?image=9"
+      },
+      {
+        "id": 10,
+        "category": "bluzy",
+        "name": "Bluza z zamkiem",
+        "price": 59.99,
+        "description": "Bluza z dodatkowym zamkiem, nadająca się na różne okazje.",
+        "image": "https://placekitten.com/300/200?image=10"
+      },
+      {
+        "id": 11,
+        "category": "bluzy",
+        "name": "Bluza z nadrukiem",
+        "price": 54.99,
+        "description": "Bluza ozdobiona modnym nadrukiem.",
+        "image": "https://placekitten.com/300/200?image=11"
+      },
+      {
+        "id": 12,
+        "category": "spodnie",
+        "name": "Spodnie chino",
+        "price": 69.99,
+        "description": "Eleganckie spodnie chino, idealne na specjalne okazje.",
+        "image": "https://placekitten.com/300/200?image=12"
+      },
+      {
+        "id": 13,
+        "category": "spodnie",
+        "name": "Legginsy sportowe",
+        "price": 29.99,
+        "description": "Legginsy zapewniające wygodę podczas treningu.",
+        "image": "https://placekitten.com/300/200?image=13"
+      },
+      {
+        "id": 14,
+        "category": "akcesoria",
+        "name": "Torba sportowa",
+        "price": 45.99,
+        "description": "Przestronna torba idealna na sprzęt sportowy.",
+        "image": "https://placekitten.com/300/200?image=14"
+      },
+      {
+        "id": 15,
+        "category": "akcesoria",
+        "name": "Kurtka przeciwdeszczowa",
+        "price": 79.99,
+        "description": "Kurtka chroniąca przed deszczem, idealna na wiosenne dni.",
+        "image": "https://placekitten.com/300/200?image=15"
+      },
+      {
+        "id": 16,
+        "category": "bluzy",
+        "name": "Bluza z golfem",
+        "price": 64.99,
+        "description": "Bluza z dodatkowym golfem, doskonała na chłodniejsze dni.",
+        "image": "https://placekitten.com/300/200?image=16"
+      },
+      {
+        "id": 17,
+        "category": "spodnie",
+        "name": "Spodnie jeansowe",
+        "price": 59.99,
+        "description": "Klasyczne spodnie jeansowe, pasujące do wielu stylizacji.",
+        "image": "https://placekitten.com/300/200?image=17"
+      },
+      {
+        "id": 18,
+        "category": "akcesoria",
+        "name": "Słuchawki bezprzewodowe",
+        "price": 129.99,
+        "description": "Bezprzewodowe słuchawki zapewniające doskonały dźwięk.",
+        "image": "https://placekitten.com/300/200?image=18"
+      },
+      {
+        "id": 19,
+        "category": "bluzy",
+        "name": "Bluza z kieszeniami",
+        "price": 54.99,
+        "description": "Bluza z praktycznymi kieszeniami na przedzie.",
+        "image": "https://placekitten.com/300/200?image=19"
+      },
+      {
+        "id": 20,
+        "category": "spodnie",
+        "name": "Spodnie cargo",
+        "price": 74.99,
+        "description": "Spodnie cargo z wieloma kieszeniami, doskonałe na wyprawy.",
+        "image": "https://placekitten.com/300/200?image=20"
+      }
+    ]
+  }
+  
