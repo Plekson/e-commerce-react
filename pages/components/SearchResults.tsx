@@ -1,7 +1,15 @@
+// components/SearchResults.tsx
 import React from "react";
+import Link from 'next/link';
+
+interface SearchResult {
+  id: number;
+  name: string;
+  link: string;
+}
 
 interface SearchResultsProps {
-  results: string[];
+  results: SearchResult[];
 }
 
 const SearchResults = ({ results }: SearchResultsProps) => {
@@ -14,10 +22,10 @@ const SearchResults = ({ results }: SearchResultsProps) => {
       {results.length === 0 ? (
         <div className="p-4">Brak wyników wyszukiwania.</div>
       ) : (
-        results.map((result, index) => (
-          <div key={index} className="p-4">
-            <p className="text-gray-800">{result}</p>
-          </div>
+        results.map((result) => (
+          <Link key={result.id} href={`../subpages/ItemPage?id=${result.id}`} className="block p-4 hover:bg-gray-100">
+              <p className="text-gray-800">{result.name}</p>
+          </Link>
         ))
       )}
     </div>

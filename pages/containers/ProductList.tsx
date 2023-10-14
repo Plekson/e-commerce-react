@@ -1,6 +1,6 @@
 import ProductCard from "@/pages/components/ProductCard";
 import React, { useEffect, useState } from "react";
-import apiData from "../api/api-data.json";
+import apiData from "../api/products.json";
 
 interface Product {
   id: number;
@@ -11,13 +11,23 @@ interface Product {
   image: string;
 }
 
-const ProductList = () => {
+interface ProductListProps {
+  selectedCategory?: string;
+}
+
+const ProductList = ({ selectedCategory }: ProductListProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // W tym przypadku możesz pominąć żądanie Axios, ponieważ dane są już dostępne w `apiData`.
-    setProducts(apiData.products);
-  }, []);
+    if (selectedCategory) {
+      const filteredProducts = apiData.products.filter(
+        (product) => product.category === selectedCategory
+      );
+      setProducts(filteredProducts);
+    } else {
+      setProducts(apiData.products);
+    }
+  }, [selectedCategory]);
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4 gap-2">
