@@ -1,17 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { ShoppingCartIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import CartIcon from "./CartIcon";
-
-interface Product {
-  id: number;
-  category: string;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-}
+import { Product } from "../api/productType";
+import { addToCart } from "../utils/addToCart";
+import { Color } from "../api/colorType";
 
 interface ProductCardProps {
   product: Product;
@@ -24,10 +17,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
     router.push(`/subpages/ItemPage?id=${product.id}`);
   };
 
+  const handleAddToCart = (): void =>{
+    const selectedColor = { hex: '#000000', name: 'Black' };
+    addToCart(product, selectedColor);
+  };
+
   return (
     <div
       className="cursor-pointer max-w-[12rem] sm:max-w-xs lg:max-w-sm w-full border rounded-lg shadow-md overflow-hidden mx-auto flex-shrink-0"
-      onClick={handleProductClick}
     >
       <div className="relative group">
         <Image
@@ -36,12 +33,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
           width={400}
           height={400}
           loading="eager"
+          onClick={handleProductClick}
         />
         <div className="absolute bottom-2 right-2">
-            <CartIcon />
+            <CartIcon addToCart={handleAddToCart}/>
         </div>
       </div>
-      <div className="p-2 space-y-2">
+      <div className="p-2 space-y-2" onClick={handleProductClick}>
         <h1 className="truncate">{product.name}</h1>
         <h2>{product.price}$</h2>
       </div>

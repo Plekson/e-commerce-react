@@ -5,26 +5,33 @@ import SearchBar from "@/pages/components/SearchBar";
 import Link from "next/link";
 import UserDropdown from "../components/UserDropdown";
 import SlideBar from "../components/SlideBar";
+import Cookie from "js-cookie";
+import { Product } from '../api/productType';
 
 const Navbar2 = () => {
   
   const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [activeSlideBar, setActiveSlideBar] = useState<'slideBar1' | 'slideBar2' | null>(null);
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const cartCookie = Cookie.get('cart');
+    const parsedCart = cartCookie ? JSON.parse(cartCookie) : [];
+    setCartProducts(parsedCart);
+  }, []);
+  
 
   const handleSearchResultsChange = (results: string[]) => {
     setSearchResults(results);
   };
 
-  const exampleResults = ["Wynik 1", "Wynik 2", "Wynik 3"];
+  const exampleResults = ['Wynik 1', 'Wynik 2', 'Wynik 3'];
 
-  type SlideBarName = "slideBar1" | "slideBar2";
-
-  const [activeSlideBar, setActiveSlideBar] = useState<SlideBarName | null>(
-    null
-  );
-
-  const toggleSlideBar = (barName: SlideBarName) => {
-    setActiveSlideBar(activeSlideBar === barName ? null : barName);
+  const toggleSlideBar = (barName: 'slideBar1' | 'slideBar2') => {
+    setActiveSlideBar((prevBar) => (prevBar === barName ? null : barName));
   };
+
+  
   
   return (
     <header className="bg-white md:pb-0 pb-2 fixed z-30 top-0 w-screen left-0">
@@ -124,14 +131,14 @@ const Navbar2 = () => {
         isOpen={activeSlideBar === "slideBar1"}
         onClose={() => toggleSlideBar("slideBar1")}
         title="Koszyk"
-        data="SlideBar1 Data"
+        products={cartProducts}
       />
       <SlideBar
         btnTitle="Dodaj zakupy do koszyka"
         isOpen={activeSlideBar === "slideBar2"}
         onClose={() => toggleSlideBar("slideBar2")}
         title="Ulubione"
-        data="SlideBar2 Data"
+        products={cartProducts}
       />
     </header>
   );

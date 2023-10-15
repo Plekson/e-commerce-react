@@ -1,26 +1,26 @@
 import React from "react";
+import { Product } from "../api/productType";
+import Image from "next/image";
 
 interface CartProductProps {
-  product: {
-    id: number;
-    name: string;
-    price: number;
-  };
+  product: Product;
 }
 
 const CartProduct = ({ product }: CartProductProps) => {
+  const selectedColorName = product.selectedColor ? product.selectedColor.name : '';
+
   return (
     <div className="flex my-4">
       <div className="w-1/3">
-        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
+        <Image src={Array.isArray(product.image) ? product.image[0] : product.image} alt={product.name} width={300} height={200}/>
       </div>
       <div className="flex flex-col flex-1 px-2 items-stretch">
         <div>
           <div className="flex justify-between">
-            <h2>{product.name}</h2>
-            <p>{product.price}</p>
+            <h2 className="font-medium">{product.name}</h2>
+            <p className="font-medium">{product.price} PLN</p>
           </div>
-          <h2>Kolor:</h2>
+          <h2>Kolor: {selectedColorName}</h2>
         </div>
         <div className="flex flex-1 justify-between items-end">
           <p>Ilość:</p>

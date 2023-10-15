@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 interface ProductGalleryProps {
-  image: string[]; // Tablica adresów URL obrazów
+  image: string; // Tablica adresów URL obrazów
 }
 
 const ProductGallery = ({ image }: ProductGalleryProps) => {

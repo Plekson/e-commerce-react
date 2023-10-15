@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import Navbar from "./containers/Navbar";
 import Hero from "./containers/Hero";
 import Sample from "./containers/sample";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
