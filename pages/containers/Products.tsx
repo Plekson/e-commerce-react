@@ -1,9 +1,5 @@
 // typy???????????? czy z bazy danych definiowane????
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-}
+import { Product } from "../api/productType";
 
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";

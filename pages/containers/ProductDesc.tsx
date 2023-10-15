@@ -3,23 +3,15 @@ import FilterButton from "../components/FilterButton";
 import Button from "../components/Button";
 import InfoDropdown from "../components/InfoDropdown";
 import ColorPick from "../components/ColorPick";
+import { Product } from "../api/productType";
+import { Color } from '../api/colorType';
+import { addToCart } from "../utils/addToCart";
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string[];
-}
 
 interface ProductDescProps {
   product: Product;
 }
 
-interface Color {
-  hex: string;
-  name: string;
-}
 
 const ProductDesc = ({ product }: ProductDescProps) => {
   const options = ["S", "M", "L"];
@@ -28,9 +20,10 @@ const ProductDesc = ({ product }: ProductDescProps) => {
     console.log("Selected Option:", selectedOption);
   };
 
-  function handleButton(): void {
-    throw new Error("Function not implemented.");
+  const handleButton = (): void => {
+    addToCart(product, selectedColor);
   }
+  
 
   const [selectedColor, setSelectedColor] = useState<Color>({ hex: "", name: "" });
   const [colors, setColors] = useState<Color[]>([]);

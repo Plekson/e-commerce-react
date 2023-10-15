@@ -19,7 +19,6 @@ const Sample = ({ title }: SampleProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // W tym przypadku możesz pominąć żądanie Axios, ponieważ dane są już dostępne w `apiData`.
     setProducts(apiData.products);
   }, []);
 
