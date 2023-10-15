@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FilterButton from "../components/FilterButton";
 import Button from "../components/Button";
 import InfoDropdown from "../components/InfoDropdown";
+import ColorPick from "../components/ColorPick";
 
 interface Product {
   id: number;
   name: string;
-  price: number
+  price: number;
   description: string;
-  image: string[]; // Zmieniono nazwę na "image"
-  // Dodaj inne właściwości, jeśli są dostępne
+  image: string[];
 }
 
 interface ProductDescProps {
   product: Product;
+}
+
+interface Color {
+  hex: string;
+  name: string;
 }
 
 const ProductDesc = ({ product }: ProductDescProps) => {
@@ -27,35 +32,51 @@ const ProductDesc = ({ product }: ProductDescProps) => {
     throw new Error("Function not implemented.");
   }
 
+  const [selectedColor, setSelectedColor] = useState<Color>({ hex: "", name: "" });
+  const [colors, setColors] = useState<Color[]>([]);
+
+  useEffect(() => {
+    const fetchColorsFromApi = async () => {
+      try {
+        const response = await fetch("/api/getColors");
+        const data = await response.json();
+
+        if (data.colors && Array.isArray(data.colors)) {
+          setColors(data.colors);
+          setSelectedColor(data.colors[0]);
+        } else {
+          console.error('Invalid response format:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching colors:', error);
+      }
+    };
+
+    fetchColorsFromApi();
+  }, []);
+
+  const handleColorChange = (color: Color) => {
+    setSelectedColor(color);
+    console.log("Selected color:", color);
+  };
+
   return (
     <div className="lg:basis-1/2 max-w-lg lg:mt-0 mt-4 lg:mx-0 mx-4">
       <div className="text-left">
         <h1 className="text-3xl font-semibold">{product.name}</h1>
         <h2 className="text-xl font-medium my-4">{`Cena: ${product.price} PLN`}</h2>
         <div className="my-8">
-          <h3 className="py-2">
-            Kolor: <span className="font-medium">czarny</span>
+        <h3 className="py-2">
+            Kolor: <span className="font-medium">{selectedColor.name}</span>
           </h3>
-          <div className="flex">
-            {Array.isArray(product.image)
-              ? product.image.map((img, index) => (
-                  <div key={index}>
-                    <img
-                      src={img}
-                      alt={`Thumbnail ${index}`}
-                      className="w-20 h-20 object-cover cursor-pointer border-2 border-gray-300 mr-2"
-                    />
-                  </div>
-                ))
-              : (
-                  <div>
-                    <img
-                      src={product.image}
-                      alt={`Thumbnail 0`}
-                      className="w-20 h-20 object-cover cursor-pointer border-2 border-gray-300 mr-2"
-                    />
-                  </div>
-                )}
+          <div className="flex space-x-2">
+            {colors.map((color, index) => (
+              <ColorPick
+                key={index}
+                color={color.hex}
+                onClick={() => handleColorChange(color)}
+              />
+            ))}
           </div>
         </div>
         <div>
@@ -68,14 +89,14 @@ const ProductDesc = ({ product }: ProductDescProps) => {
         </div>
         <Button label="Dodaj do koszyka" onClick={handleButton} />
         <div className="space-y-4 bg-white">
-        <InfoDropdown
-          title="Informacje o produkcie"
-          deliveryInfo={product.description}
-        />
-        <InfoDropdown
-          title="Informacje o dostawie"
-          deliveryInfo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
+          <InfoDropdown
+            title="Informacje o produkcie"
+            deliveryInfo={product.description}
+          />
+          <InfoDropdown
+            title="Informacje o dostawie"
+            deliveryInfo="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
         </div>
       </div>
     </div>
