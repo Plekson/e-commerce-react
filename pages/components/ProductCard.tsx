@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { ShoppingCartIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
+import CartIcon from "./CartIcon";
 
 interface Product {
   id: number;
@@ -36,11 +37,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
           height={400}
           loading="eager"
         />
-        <div className="group-hover:block hidden absolute top-0 bottom-0 right-0 left-0 bg-black/30">
-          <div className="w-full h-full flex justify-center items-center space-x-4">
-            <ShoppingCartIcon className="h6 w-6" />
-            <EyeIcon className="h6 w-6" />
-          </div>
+        <div className="absolute bottom-2 right-2">
+            <CartIcon />
         </div>
       </div>
       <div className="p-2 space-y-2">

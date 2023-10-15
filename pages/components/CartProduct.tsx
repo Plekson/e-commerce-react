@@ -20,15 +20,15 @@ const CartProduct = ({ product }: CartProductProps) => {
             <h2>{product.name}</h2>
             <p>{product.price}</p>
           </div>
-          <span>Option</span>
+          <h2>Kolor:</h2>
         </div>
         <div className="flex flex-1 justify-between items-end">
-          <p>Ilość</p>
+          <p>Ilość:</p>
           <a
             href="#"
             className="text-green-600	hover:text-green-900 duration-200"
           >
-            Remove
+            Usuń
           </a>
         </div>
       </div>
