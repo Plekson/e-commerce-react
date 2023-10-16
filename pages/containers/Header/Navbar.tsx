@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import Logo from "../../public/images/logo.png";
+import Logo from "../../../public/images/logo.png";
 import Image from "next/image";
-import SearchBar from "@/pages/components/SearchBar";
+import SearchBar from "@/pages/components/Search/SearchBar";
 import Link from "next/link";
-import UserDropdown from "../components/UserDropdown";
-import SlideBar from "../components/SlideBar";
+import UserDropdown from "../../components/Dropdowns/UserDropdown";
+import SlideBar from "../../components/Cart/SlideBar";
 import Cookie from "js-cookie";
-import { Product } from '../api/productType';
+import { Product } from '../../api/productType';
 
 const Navbar2 = () => {
   

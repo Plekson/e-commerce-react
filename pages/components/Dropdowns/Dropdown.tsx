@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Category } from "../api/categories";
+import { Category } from "../../api/categories";
 
 const Dropdown = () => {
   const [categories, setCategories] = useState<Category[]>([]);

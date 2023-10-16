@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import HeroImage from "../../../public/images/hero-image.png";
-import DotIndicator from "@/pages/components/DotIndicator";
+import DotIndicator from "@/pages/components/Indicators/DotIndicator";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 const images = [

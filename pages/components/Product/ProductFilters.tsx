@@ -1,4 +1,4 @@
-import FilterButton from "@/pages/components/FilterButton";
+import FilterButton from "@/pages/components/Buttons/FilterButton";
 import React from "react";
 
 const ProductFilters = () => {

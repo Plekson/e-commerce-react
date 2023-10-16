@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../components/ProductCard";
-import apiData from "../api/products.json";
+import ProductCard from "../../components/Cart/ProductCard";
+import apiData from "../../api/products.json";
 
 interface Product {
   id: number;
@@ -11,11 +11,11 @@ interface Product {
   image: string;
 }
 
-interface SampleProps {
+interface ProductsProps {
   title: string;
 }
 
-const Sample = ({ title }: SampleProps) => {
+const Products = ({ title }: ProductsProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const Sample = ({ title }: SampleProps) => {
   );
 };
 
-export default Sample;
+export default Products;
