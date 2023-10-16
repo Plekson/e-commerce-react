@@ -1,5 +1,3 @@
-// components/InfoDropdown.tsx
-
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";

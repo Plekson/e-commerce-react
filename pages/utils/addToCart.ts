@@ -2,7 +2,6 @@ import Cookie from "js-cookie";
 import { Product } from "../api/productType";
 import { Color } from "../api/colorType";
 
-// Dodaj kolor do koszyka
 export const addToCart = (product: Product, selectedColor: Color): void => {
   // Get existing cart data from cookies
   const existingCart = Cookie.get("cart");

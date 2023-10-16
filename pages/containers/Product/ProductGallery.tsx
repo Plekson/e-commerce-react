@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 interface ProductGalleryProps {
-  image: string; // Tablica adresów URL obrazów
+  image: string;
 }
 
 const ProductGallery = ({ image }: ProductGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
   useEffect(() => {
-    // Jeśli masz tylko jedno zdjęcie, ustaw selectedImageIndex na 0
     if (image.length === 1) {
       setSelectedImageIndex(0);
     }

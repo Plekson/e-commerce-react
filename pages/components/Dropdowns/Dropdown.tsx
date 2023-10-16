@@ -1,4 +1,3 @@
-// Dropdown.tsx
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
