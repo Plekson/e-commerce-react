@@ -36,11 +36,9 @@ Projekt e-commerce oparty na frameworku Next.js, który umożliwia szybkie i efe
     ```
 
 ## Uruchamianie
-    ```bash
     npm run dev
     # lub
     yarn dev
-    ```
 Aplikacja będzie dostępna pod adresem http://localhost:3000.
 
 ## Budowanie
