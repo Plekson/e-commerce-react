@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar2 from '../containers/Navbar'
+import Navbar2 from '../containers/Header/Navbar'
 
 const cartpage = () => {
   return (

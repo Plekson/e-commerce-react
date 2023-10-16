@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import CartProduct from "@/pages/components/CartProduct";
+import CartProduct from "@/pages/components/Cart/CartProduct";
 import Link from "next/link";
-import { Product } from "../api/productType";
+import { Product } from "../../api/productType";
 
 interface SlideBarProps {
     isOpen: boolean;

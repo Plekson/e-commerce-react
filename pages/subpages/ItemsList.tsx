@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import Hero from "../containers/Hero";
-import Navbar2 from "../containers/Navbar";
+import Hero from "../containers/Hero/Hero";
+import Navbar2 from "../containers/Header/Navbar";
 import React from "react";
-import ProductFilters from "../containers/ProductFilters";
-import ProductList from "../containers/ProductList";
+import ProductFilters from "../components/Product/ProductFilters";
+import ProductList from "../containers/Product/ProductList";
 
 
 const ItemsList = () => {

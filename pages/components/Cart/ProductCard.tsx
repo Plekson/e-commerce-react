@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import CartIcon from "./CartIcon";
-import { Product } from "../api/productType";
-import { addToCart } from "../utils/addToCart";
-import { Color } from "../api/colorType";
+import { Product } from "../../api/productType";
+import { addToCart } from "../../utils/addToCart";
+import { Color } from "../../api/colorType";
 
 interface ProductCardProps {
   product: Product;

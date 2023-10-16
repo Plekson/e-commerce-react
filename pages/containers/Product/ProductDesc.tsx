@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import FilterButton from "../components/FilterButton";
-import Button from "../components/Button";
-import InfoDropdown from "../components/InfoDropdown";
-import ColorPick from "../components/ColorPick";
-import { Product } from "../api/productType";
-import { Color } from '../api/colorType';
-import { addToCart } from "../utils/addToCart";
+import FilterButton from "../../components/Buttons/FilterButton";
+import Button from "../../components/Buttons/Button";
+import InfoDropdown from "../../components/Dropdowns/InfoDropdown";
+import ColorPick from "../../components/Buttons/ColorPick";
+import { Product } from "../../api/productType";
+import { Color } from '../../api/colorType';
+import { addToCart } from "../../utils/addToCart";
 
 
 interface ProductDescProps {

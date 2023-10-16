@@ -1,7 +1,7 @@
-import ProductCard from "@/pages/components/ProductCard";
+import ProductCard from "@/pages/components/Cart/ProductCard";
 import React, { useEffect, useState } from "react";
-import apiData from "../api/products.json";
-import { Product } from "../api/productType";
+import apiData from "../../api/products.json";
+import { Product } from "../../api/productType";
 
 interface ProductListProps {
   selectedCategory?: string;

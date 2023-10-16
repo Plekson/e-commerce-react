@@ -1,8 +1,7 @@
-// components/SearchBar.tsx
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import axios from 'axios';
 import SearchResults from './SearchResults';
-import Dropdown from './Dropdown';
+import Dropdown from '../Dropdowns/Dropdown';
 
 interface SearchBarProps {
   visibility: string;

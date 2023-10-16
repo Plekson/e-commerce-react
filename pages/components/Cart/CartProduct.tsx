@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../api/productType";
+import { Product } from "../../api/productType";
 import Image from "next/image";
 
 interface CartProductProps {

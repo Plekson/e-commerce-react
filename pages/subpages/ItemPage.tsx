@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Navbar2 from "../containers/Navbar";
-import ProductGallery from "../containers/ProductGallery";
-import ProductDesc from "../containers/ProductDesc";
-import Sample from "../containers/sample";
+import Navbar2 from "../containers/Header/Navbar";
+import ProductGallery from "../containers/Product/ProductGallery";
+import ProductDesc from "../containers/Product/ProductDesc";
+import Products from "../containers/Product/Products";
 import { Product } from '../api/productType';
 
 const ItemPage = () => {
@@ -44,8 +44,8 @@ const ItemPage = () => {
         <ProductGallery image={product.image} />
         <ProductDesc product={product} />
       </div>
-      <Sample title="Podobne" />
-      <Sample title="Ostatnio przeglądane" />
+      <Products title="Podobne" />
+      <Products title="Ostatnio przeglądane" />
     </div>
   );
 };
