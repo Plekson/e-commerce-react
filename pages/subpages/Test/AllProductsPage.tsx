@@ -11,7 +11,6 @@ const AllProductsPage: React.FC = () => {
         const response = await getProducts();
         console.log('Received data:', response);
 
-        // Assuming 'content' is the array of products
         if (response.content) {
           setProducts(response.content);
         } else {

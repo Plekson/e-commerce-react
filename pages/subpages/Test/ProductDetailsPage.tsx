@@ -39,7 +39,7 @@ const ProductDetailsPage: React.FC = () => {
   return (
     <div className="max-w-2xl mx-auto mt-8 flex">
       <div className="w-1/3 mr-8">
-        <h2 className="text-xl font-bold mb-2">Choose Color:</h2>
+        <h2 className="text-xl font-bold mb-2">Wybierz kolor:</h2>
         <ul>
         {product.colors.map((color) => (
       <li
@@ -62,7 +62,7 @@ const ProductDetailsPage: React.FC = () => {
         <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
         <p className="text-gray-600 mb-6">{product.description}</p>
         <div>
-          <h2 className="text-xl font-bold mb-2">Product Showcase:</h2>
+          <h2 className="text-xl font-bold mb-2">Produkt:</h2>
           <div>
           {product.colors
       .filter((color) => color.color_name === selectedColor)
@@ -81,30 +81,30 @@ const ProductDetailsPage: React.FC = () => {
           </div>
         </div>
         <div className="mb-8">
-          <h2 className="text-xl font-bold mb-2">Sizes:</h2>
+          <h2 className="text-xl font-bold mb-2">Rozmiary:</h2>
           <ul>
             {product.colors
               .filter((color) => color.color_name === selectedColor)
               .map((color) =>
                 color.sizes.map((size) => (
                   <li key={size.size_id} className="mb-1">
-                    {size.size_name} - Quantity: {size.quantity}
+                    {size.size_name} - Ilość: {size.quantity}
                   </li>
                 ))
               )}
           </ul>
         </div>
         <div className="mb-8">
-          <h2 className="text-xl font-bold mb-2">Category:</h2>
+          <h2 className="text-xl font-bold mb-2">Kategoria:</h2>
           <p>{product.category.name}</p>
         </div>
         <div>
-          <h2 className="text-xl font-bold mb-2">Product Reviews:</h2>
+          <h2 className="text-xl font-bold mb-2">Oceny:</h2>
           <ul>
             {product.productReviews.map((review) => (
               <li key={review.id} className="mb-4">
-                <p className="font-semibold mb-1">User: {review.userName}</p>
-                <p className="mb-1">Rating: {review.starRating}</p>
+                <p className="font-semibold mb-1">Użytkownik: {review.userName}</p>
+                <p className="mb-1">Ocena: {review.starRating}</p>
                 <p>{review.reviewText}</p>
               </li>
             ))}
